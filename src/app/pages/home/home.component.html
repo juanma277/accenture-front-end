@@ -1,0 +1,42 @@
+<div class="m-5">
+    <h1>Bienvenido </h1>
+    <hr>
+    <button class="btn btn-danger" (click)="salir()">Salir</button>
+</div>
+
+<div class="card" *ngIf="!estadoCredito">
+    <div class="card-body">
+        <h5 class="card-title">Solicitud de crédito enviada</h5>
+        <p class="card-text">En 3 días habiles recibiras noticias del crédito</p>
+        <a style="cursor: pointer" (click)="estadoCredito = !estadoCredito" class="btn btn-primary">Nueva solicitud</a>
+    </div>
+</div>
+
+<div class="container" *ngIf="estadoCredito">
+    <form #formPrestamo="ngForm" (ngSubmit)="calcular(formPrestamo)" class="login100-form validate-form flex-sb flex-w">
+
+        <span class="login100-form-title p-b-51">
+            SOLICITAR PRESTAMO
+        </span>
+
+        <span *ngIf="formPrestamo.submitted && formPrestamo.controls['fecha'].errors" class="text-danger animated fadeIn">La fecha de ingreso es obligatorio</span>
+        <div class="wrap-input100 m-b-16">
+            <label for="fechaIngreso">Fecha de Ingreso</label>
+            <input id="fechaIngreso" class="input100" type="date" name="fecha" placeholder="Fecha de ingreso" [(ngModel)]="usuario.fechaIngreso" required>
+            <span class="focus-input100"></span>
+        </div>
+
+        <span *ngIf="formPrestamo.submitted && formPrestamo.controls['salario'].errors" class="text-danger animated fadeIn">Los ingresos mensuales es obligatorio</span>
+        <div class="wrap-input100 m-b-16" data-validate="Password is required">
+            <input class="input100" type="number" name="salario" placeholder="Ingresos mensuales" [(ngModel)]="usuario.salario" required>
+            <span class="focus-input100"></span>
+        </div>
+
+        <div class="container-login100-form-btn m-t-17">
+            <button class="login100-form-btn" type="submit">
+                Calcular
+            </button>
+        </div>
+
+    </form>
+</div>

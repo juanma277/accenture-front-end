@@ -1,0 +1,66 @@
+<div class="limiter animated fadeInLeft">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90">
+            <form #formRegistro="ngForm" (ngSubmit)="registrar(formRegistro)" class="login100-form validate-form flex-sb flex-w">
+
+                <span class="login100-form-title p-b-51">
+                    Crear nueva cuenta
+                </span>
+
+                <span *ngIf="formRegistro.submitted && formRegistro.controls['identification'].errors" class="text-danger animated fadeIn">La identificacion es obligatorio</span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="number" name="identification" placeholder="Identificación" [(ngModel)]="usuario.identification" required>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span *ngIf="formRegistro.submitted && formRegistro.controls['nombres'].errors" class="text-danger animated fadeIn">El nombre es obligatorio</span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="text" name="nombres" placeholder="Nombres" [(ngModel)]="usuario.nombres" required>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span *ngIf="formRegistro.submitted && formRegistro.controls['apellidos'].errors" class="text-danger animated fadeIn">El apellido es obligatorio</span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="text" name="apellidos" placeholder="Apellidos" [(ngModel)]="usuario.apellidos" required>
+
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span *ngIf="formRegistro.submitted && formRegistro.controls['fechaNacimiento'].errors" class="text-danger animated fadeIn">La fecha de nacimiento es obligatorio</span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="date" name="fechaNacimiento" [(ngModel)]="usuario.fechaNacimiento" (blur)="ageCalculator($event.target.value)" required>
+
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span *ngIf="formRegistro.submitted && formRegistro.controls['email'].errors" class="text-danger animated fadeIn">El correo es obligatorio</span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="email" name="email" placeholder="Email" [(ngModel)]="usuario.email" required email>
+
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span *ngIf="formRegistro.submitted && formRegistro.controls['password'].errors" class="text-danger animated fadeIn">La contraseña es requerida</span>
+                <div class="wrap-input100 m-b-16" data-validate="Password is required">
+                    <input class="input100" type="password" name="password" placeholder="Password" [(ngModel)]="usuario.password" required>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="flex-sb-m w-full p-t-3 p-b-24">
+                    <div>
+                        <a routerLink="/login" class="txt1">
+                                ¿Ya tienes cuenta? / Ingresar
+                            </a>
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn m-t-17">
+                    <button class="login100-form-btn" type="submit">
+                        Crear cuenta
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
