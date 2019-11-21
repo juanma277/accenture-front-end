@@ -5,7 +5,7 @@
 Este proyecto angular contiene el resultado de la prueba para desarrollador de la empresa "Accenture", para probar la funcionalidad de manera local debes seguir los siguientes pasos:
 
 1. Clona este repositorio en local: 
-https://github.com/juanma277/accenture-prueba.git
+https://github.com/juanma277/accenture-frontend.git
 
 2. Ingresa a la carpeta del directorio:
 cd accenture-frontend-master
